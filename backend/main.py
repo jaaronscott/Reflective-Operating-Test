@@ -1,0 +1,11 @@
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"message": "Reflective Backend is Live!"}
+
+@app.get("/reflect/{item_id}")
+def read_item(item_id: int):
+    return {"item_id": item_id, "status": "active"}
