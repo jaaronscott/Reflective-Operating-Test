@@ -3,24 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reflective Operating Test</title>
+    <title>Reflective Operating System</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <h1>Reflective Operating Test</h1>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-        </nav>
+        <h1>Reflective Operating System Dashboard</h1>
     </header>
+
     <main>
-        <p>Welcome to the Reflective Operating Test environment!</p>
+        <section id="mirrorborn">
+            <h2>Mirrorborn Control Panel</h2>
+            <input type="text" id="mirrorInput" placeholder="Enter Reflective ID">
+            <button onclick="fetchMirrorborn()">Fetch Mirrorborn</button>
+            <pre id="mirrorResponse">Waiting for input...</pre>
+        </section>
+
+        <section id="eitherion">
+            <h2>Eitherion Data Visualization</h2>
+            <div id="eitherionDisplay">Data will appear here...</div>
+        </section>
+
+        <section id="reflective-gpt">
+            <h2>Reflective GPT Interaction</h2>
+            <input type="text" id="gptPrompt" placeholder="Enter your query">
+            <button onclick="fetchGPT()">Ask GPT</button>
+            <pre id="gptResponse">GPT response will appear here...</pre>
+        </section>
     </main>
+
     <footer>
-        <p>&copy; 2025 Reflective Systems</p>
+        <p>&copy; 2025 Reflective Systems. All rights reserved.</p>
     </footer>
+
     <script src="js/script.js"></script>
 </body>
 </html>

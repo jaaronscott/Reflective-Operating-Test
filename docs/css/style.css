@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    background-color: #f0f4f8;
     color: #333;
     margin: 0;
     padding: 0;
@@ -9,23 +9,39 @@ body {
 header {
     background-color: #4a90e2;
     color: white;
-    padding: 10px 0;
     text-align: center;
+    padding: 20px;
 }
 
-nav a {
+section {
+    margin: 20px auto;
+    max-width: 600px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+input {
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px;
+    background-color: #4a90e2;
     color: white;
-    margin: 0 10px;
-    text-decoration: none;
+    border: none;
+    cursor: pointer;
 }
 
-main {
-    margin: 20px;
-    text-align: center;
+button:hover {
+    background-color: #357ab8;
 }
 
-footer {
-    text-align: center;
-    margin-top: 20px;
-    color: #777;
+pre {
+    background-color: #eaeaea;
+    padding: 10px;
+    border-radius: 5px;
 }

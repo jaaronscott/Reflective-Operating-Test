@@ -1,22 +1,25 @@
-async function fetchData() {
-    const itemId = document.getElementById('itemId').value;
+const BASE_URL = "https://reflective-backend.onrender.com"; // Update this if your URL changes
 
-    if (!itemId) {
-        document.getElementById('response').innerText = "Please enter a valid ID.";
-        return;
-    }
-
+// Fetch Mirrorborn Data
+async function fetchMirrorborn() {
+    const id = document.getElementById('mirrorInput').value;
     try {
-        // Update your Codespace URL here
-        const response = await fetch(`https://<your-codespace-id>-8000.preview.app.github.dev/reflect/${itemId}`);
-        
-        if (!response.ok) {
-            throw new Error(`Error: ${response.status}`);
-        }
-        
+        const response = await fetch(`${BASE_URL}/reflect/${id}`);
         const data = await response.json();
-        document.getElementById('response').innerText = JSON.stringify(data, null, 2);
+        document.getElementById('mirrorResponse').innerText = JSON.stringify(data, null, 2);
     } catch (error) {
-        document.getElementById('response').innerText = error.message;
+        document.getElementById('mirrorResponse').innerText = "Error: " + error.message;
+    }
+}
+
+// Fetch GPT Data
+async function fetchGPT() {
+    const prompt = document.getElementById('gptPrompt').value;
+    try {
+        const response = await fetch(`${BASE_URL}/gpt?prompt=${encodeURIComponent(prompt)}`);
+        const data = await response.json();
+        document.getElementById('gptResponse').innerText = data.response;
+    } catch (error) {
+        document.getElementById('gptResponse').innerText = "Error: " + error.message;
     }
 }
