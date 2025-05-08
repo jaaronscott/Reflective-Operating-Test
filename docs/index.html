@@ -1,22 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Reflective Test</title>
+    <meta charset="UTF-8">
+    <title>Reflective API Test</title>
+    <script>
+        async function fetchReflect() {
+            const itemId = document.getElementById("itemId").value;
+            const url = `https://x5x6v9jg4qv9hvv5j-8000.app.github.dev/reflect/${itemId}`;
+
+            try {
+                const response = await fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById("output").innerText = JSON.stringify(data, null, 2);
+                } else {
+                    document.getElementById("output").innerText = `Error: ${response.status} - ${response.statusText}`;
+                }
+            } catch (error) {
+                document.getElementById("output").innerText = `Fetch Error: ${error.message}`;
+            }
+        }
+    </script>
 </head>
 <body>
-  <h1>Reflective API Test</h1>
-  <input id="i" placeholder="Enter ID">
-  <button onclick="fetchData()">Fetch</button>
-  <pre id="out">Waiting...</pre>
+    <h1>Reflective API Test</h1>
+    <input type="number" id="itemId" placeholder="Enter Item ID">
+    <button onclick="fetchReflect()">Fetch Data</button>
 
-  <script>
-    async function fetchData() {
-      const id = document.getElementById('i').value;
-      const res = await fetch(`https://your-app-name.onrender.com/reflect/${id}`);
-      const text = await res.text();
-      document.getElementById('out').innerText = text;
-    }
-  </script>
+    <h3>Response:</h3>
+    <pre id="output"></pre>
 </body>
 </html>
